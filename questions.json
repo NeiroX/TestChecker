@@ -1,0 +1,23 @@
+{
+  "name": "Информатика: тест на знания программирования",
+  "time": "15:00",
+  "questions": [
+    {
+      "question": "Hello ...",
+      "answers": [
+        {
+          "text": "wrld",
+          "isCorrect": false
+        },
+        {
+          "text": "werld",
+          "isCorrect": false
+        },
+        {
+          "text": "world",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}
