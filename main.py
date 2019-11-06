@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import uic
 import sys
 

@@ -18,10 +18,44 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>30</y>
       <width>651</width>
-      <height>591</height>
+      <height>561</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="mainMenu">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>141</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;&lt;Главное меню</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="testName">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>461</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Название теста</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
   </widget>
