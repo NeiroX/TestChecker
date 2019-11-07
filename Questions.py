@@ -24,10 +24,10 @@ class Questions(QMainWindow):
             errorMessage.setText('Questions are not found')
             return
 
-        self.endTtimer = threading.Timer(
+        self.endTimer = threading.Timer(
             int(self.file.time.split(':')[0]) * 60 + int(self.file.time.split(':')[1]),
             self.continueQuiz)  # Таймер, заканчивающий тест через заданное время
-        self.endTtimer.start()
+        self.endTimer.start()
 
         # app1 = QtCore.QCoreApplication(sys.argv)
         # self.labelTimer = QtCore.QTimer()
@@ -52,6 +52,7 @@ class Questions(QMainWindow):
 
     def nextQuestion(self, other):
         QApplication.processEvents()
+        self.uploadAnswer()
         self.numberOfQuestions += 1
         if self.numberOfQuestions == self.lenOfTest - 1:
             other.nextButton.hide()
@@ -61,6 +62,7 @@ class Questions(QMainWindow):
 
     def previousQuestion(self, other):
         QApplication.processEvents()
+        self.uploadAnswer()
         self.numberOfQuestions -= 1
         if self.numberOfQuestions == 0:
             other.previousButton.hide()
@@ -69,15 +71,23 @@ class Questions(QMainWindow):
         self.loadQuestion(other)
 
     def continueQuiz(self, other):
-        # resultOfTest = ResultOfTest()
-        sys.exit(0)
+        self.endTimer.cancel()
+        self.uploadAnswer()
+        resultOfTest = ResultOfTest(other, self.checkAnswers(), self.lenOfTest)
+
+    def uploadAnswer(self):
+        for index in range(4):
+            if self.radioButtons[index].isChecked():
+                self.used[self.numberOfQuestions][1][index] = True
+                break
 
     def checkAnswers(self):
-        pass
-
-    # def updateTimerLabel(self):
-    #     self.time = self.time.addSecs(-1)
-    #     self.timer.setText(self.time.toString("hh:mm:ss"))
+        count = 0
+        for index in range(self.lenOfTest):
+            if True in self.used[index][1] and self.used[index][0][
+                self.used[index][1].index(True)]['isCorrect']:
+                count += 1
+        return count
 
     def loadQuestion(self, other):
         QApplication.processEvents()
