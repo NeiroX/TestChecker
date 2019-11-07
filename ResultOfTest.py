@@ -33,4 +33,4 @@ class ResultOfTest(QWidget):
         other.loadUI()
 
     def viewAnswers(self, other):
-        pass
+        other.questions.loadUI(other, None)

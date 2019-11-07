@@ -18,7 +18,7 @@ class Main(QMainWindow):
         self.exitButton.clicked.connect(self.exit)
 
     def start(self):
-        self.questions = Questions(self)
+        self.questions = Questions(self, 'test')
 
     def results(self):
         self.results = Results()
