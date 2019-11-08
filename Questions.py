@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMessageBox, QApplication, QWidget
+from PyQt5.QtWidgets import QMessageBox, QApplication, QWidget, QInputDialog
 from PyQt5 import uic, QtCore
 import sys
 from random import shuffle
@@ -30,7 +30,14 @@ class Questions(QWidget):
                 lambda x: self.continueQuiz(other,
                                             mode))  # Таймер, заканчивающий тест через заданное время
             self.endTimer.start()
+            self.name = QInputDialog.getText(other, "Enter your name",
+                                             "What's your name?")[0]
 
+            self.surname = QInputDialog.getText(other, "Enter your surname",
+                                                "What's your surname?")[0]
+
+            self.grade = QInputDialog.getText(other, "Enter your grade",
+                                              "In what grade do you study?")[0]
             # app1 = QtCore.QCoreApplication(sys.argv)
             # self.labelTimer = QtCore.QTimer()
             # self.time = QtCore.QTime(0, int(self.file.time.split(':')[0]),
@@ -54,7 +61,9 @@ class Questions(QWidget):
             other.timer.hide()
             for elem in self.radioButtons:
                 elem.setEnabled(False)
-        other.continueButton.clicked.connect(lambda: self.continueQuiz(other, mode))
+        other.continueButton.clicked.connect(
+            lambda: self.continueQuiz(other, mode))
+        self.setupQuestions(mode)
         self.loadQuestion(other, mode)
 
     def nextQuestion(self, other, mode):
@@ -83,7 +92,8 @@ class Questions(QWidget):
         if mode == 'test':
             self.endTimer.cancel()
             self.uploadAnswer()
-        resultOfTest = ResultOfTest(other, self.checkAnswers(), self.lenOfTest)
+        resultOfTest = ResultOfTest(other, self.checkAnswers(), self.file.name,
+                                    self.lenOfTest, self.name, self.surname, self.grade)
 
     def uploadAnswer(self):
         for index in range(4):
@@ -93,7 +103,7 @@ class Questions(QWidget):
 
     def checkAnswers(self):
         count = 0
-        for index in range(self.lenOfTest):
+        for index in range(len(self.used.keys())):
             if True in self.used[index][1] and self.used[index][0][
                 self.used[index][1].index(True)]['isCorrect']:
                 count += 1
@@ -102,16 +112,18 @@ class Questions(QWidget):
                 self.used[index].append(False)
         return count
 
+    def setupQuestions(self, mode):
+        for index in range(self.lenOfTest):
+            if mode == 'test':
+                answers = self.file.get_answers(index)
+                shuffle(answers)
+                isButtonSelected = [False] * 4
+                self.used[index] = [answers.copy(), isButtonSelected.copy()]
+
     def loadQuestion(self, other, mode):
         QApplication.processEvents()
-        if self.numberOfQuestions not in self.used and mode == 'test':
-            answers = self.file.get_answers(self.numberOfQuestions)
-            shuffle(answers)
-            isButtonSelected = [False] * 4
-            self.used[self.numberOfQuestions] = [answers.copy(), isButtonSelected.copy()]
-        else:
-            answers = self.used[self.numberOfQuestions][0]
-            isButtonSelected = self.used[self.numberOfQuestions][1]
+        answers = self.used[self.numberOfQuestions][0]
+        isButtonSelected = self.used[self.numberOfQuestions][1]
         for i in range(4):
             self.radioButtons[i].setText(answers[i]['text'])
             self.radioButtons[i].setChecked(isButtonSelected[i])

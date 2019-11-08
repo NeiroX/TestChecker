@@ -92,7 +92,7 @@
    <widget class="QLabel" name="questionLabel">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>250</x>
       <y>60</y>
       <width>131</width>
       <height>41</height>
@@ -130,7 +130,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;&lt;Предыдущий вопрос</string>
+     <string>&lt;&lt;Previous question</string>
     </property>
    </widget>
    <widget class="QPushButton" name="nextButton">
@@ -143,7 +143,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Следующий вопрос&gt;&gt;</string>
+     <string>Next questions&gt;&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="continueButton">
@@ -156,7 +156,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Завершить тест</string>
+     <string>Continue test</string>
     </property>
    </widget>
   </widget>

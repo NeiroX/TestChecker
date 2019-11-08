@@ -12,12 +12,12 @@ class JSONFile:
         self.loadJSON()
 
     def loadJSON(self):
-        if not isfile('questions.json'):
+        if not isfile('Extra Files/questions.json'):
             errorMessage = QMessageBox()
             errorMessage.setIcon(QMessageBox.Information)
             errorMessage.setText('File does not exist')
             return
-        with open('questions.json') as f:
+        with open('Extra Files/questions.json') as f:
             self.jsonString = load(f)
         if not self.jsonString:
             errorMessage = QMessageBox()
@@ -37,3 +37,4 @@ class JSONFile:
 
     def __len__(self):
         return len(self.questions)
+
