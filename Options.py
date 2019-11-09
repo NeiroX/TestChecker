@@ -5,13 +5,17 @@ from random import shuffle
 
 
 class JSONFile:
-    def __init__(self):
+    """
+    Класс для загрузки .json файла и полезные функции для работы с этим фалом
+    """
+
+    def __init__(self):  # Инициализация класса
         self.name = None
         self.time = None
         self.questions = list()
         self.loadJSON()
 
-    def loadJSON(self):
+    def loadJSON(self):  # Загрузка UI и считывание questions.json
         if not isfile('Extra Files/questions.json'):
             errorMessage = QMessageBox()
             errorMessage.setIcon(QMessageBox.Information)
@@ -29,12 +33,11 @@ class JSONFile:
         self.questions = self.jsonString['questions']
         shuffle(self.questions)
 
-    def get_question(self, number):
+    def get_question(self, number):  # Получение вопроса по номеру
         return self.questions[number]['question']
 
-    def get_answers(self, number):
+    def get_answers(self, number):  # Получение ответов на вопрос по номеру
         return self.questions[number]['answers']
 
-    def __len__(self):
+    def __len__(self):  # Получение количества вопросов
         return len(self.questions)
-
