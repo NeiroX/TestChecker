@@ -1,45 +1,45 @@
 {
-  "name": "Информатика: тест на знания программирования",
+  "name": "Информатика",
   "time": "15:00",
   "questions": [
     {
-      "question": "Hello ...",
+      "question": "Совокупность знаков, с помощью которых записываются числа, называется...",
       "answers": [
         {
-          "text": "wrld",
+          "text": "системой счисления",
           "isCorrect": false
         },
         {
-          "text": "werld",
+          "text": "цифрами системы счисления",
           "isCorrect": false
         },
         {
-          "text": "world",
+          "text": "алфавитом системы счисления",
           "isCorrect": true
         },
         {
-          "text": "world1",
+          "text": "основанием системы счисления",
           "isCorrect": false
         }
       ]
     },
     {
-      "question": "Hello1 ...",
+      "question": "Чему равен результат сложения двух чисел, записанных римскими цифрами: MCM + LXVIII:",
       "answers": [
         {
-          "text": "wrld",
+          "text": "1168",
           "isCorrect": false
         },
         {
-          "text": "werld",
-          "isCorrect": false
-        },
-        {
-          "text": "world",
+          "text": "1968",
           "isCorrect": true
         },
         {
-          "text": "world1",
+          "text": "2168",
+          "isCorrect": false
+        },
+        {
+          "text": "1153",
           "isCorrect": false
         }
       ]

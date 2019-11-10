@@ -22,7 +22,7 @@
      <rect>
       <x>110</x>
       <y>180</y>
-      <width>251</width>
+      <width>501</width>
       <height>41</height>
      </rect>
     </property>
@@ -40,7 +40,7 @@
      <rect>
       <x>110</x>
       <y>240</y>
-      <width>251</width>
+      <width>501</width>
       <height>41</height>
      </rect>
     </property>
@@ -58,7 +58,7 @@
      <rect>
       <x>110</x>
       <y>300</y>
-      <width>251</width>
+      <width>501</width>
       <height>41</height>
      </rect>
     </property>
@@ -76,7 +76,7 @@
      <rect>
       <x>110</x>
       <y>360</y>
-      <width>251</width>
+      <width>501</width>
       <height>41</height>
      </rect>
     </property>
@@ -92,9 +92,9 @@
    <widget class="QLabel" name="questionLabel">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>10</x>
       <y>60</y>
-      <width>131</width>
+      <width>621</width>
       <height>41</height>
      </rect>
     </property>
