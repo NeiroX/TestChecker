@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+<!-- Results UI code -->
  <class>results</class>
  <widget class="QMainWindow" name="results">
   <property name="geometry">

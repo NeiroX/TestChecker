@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+<!-- Questions UI code -->
  <class>Questions</class>
  <widget class="QMainWindow" name="Questions">
   <property name="geometry">

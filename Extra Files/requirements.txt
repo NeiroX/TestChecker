@@ -1,3 +1,4 @@
+# Requirements
 DAWG-Python==0.7.2
 docopt==0.6.2
 document==1.0
