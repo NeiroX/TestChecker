@@ -3,7 +3,7 @@ DAWG-Python==0.7.2
 docopt==0.6.2
 document==1.0
 docx==0.2.4
-lxml==4.3.1
+lxml==4.6.3
 numpy==1.16.1
 pandas==0.25.3
 Pillow==5.4.1
